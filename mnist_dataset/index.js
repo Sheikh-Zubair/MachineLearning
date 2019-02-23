@@ -7,7 +7,7 @@ const mnist = require('mnist-data');
 
 
 function loadData() {
-    const mnistData = mnist.training(0, 10000);
+    const mnistData = mnist.training(0, 20000);
 
 
     const features = mnistData.images.values.map(image => _.flatMap(image));
@@ -22,9 +22,9 @@ function loadData() {
 
 const { features, labels } = loadData();
 const regression = new LogisticRegression(features, labels, {
-    leaningRate: 0.1,
-    iterations: 10,
-    batchSize: 50
+    leaningRate: 1,
+    iterations: 80,
+    batchSize: 500
 });
 
 regression.train();
